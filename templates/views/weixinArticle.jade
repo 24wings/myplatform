@@ -1,0 +1,37 @@
+
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+        title= title || '文章列表页'
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(href="/css/reset.css", rel="stylesheet")   
+        link(href="/css/style.css" ,rel="stylesheet")
+        //- link(href="/assets/libs/bootstrap/dist/css/bootstrap.min.css" , rel="stylesheet")
+        link(href="/css/weixinArticle.css", rel="stylesheet")
+        block css
+        block head
+    body
+        article.excerpt.excerpt-2
+            a.focus(href="" ,style="display: inline;" ,draggable="false")
+                img(article)
+        <article class="excerpt excerpt-2">
+        <a class="focus" href="http://mp.weixin.qq.com/s/h5vcBwAoPQeheVQ0KyELLg" title="ps" draggable="false">
+        <img class="thumb" data-original="images/honeycomb.jpg" src="images/honeycomb.jpg" alt="ps"></a>
+	<header><a class="cat" href="http://mp.weixin.qq.com/s/h5vcBwAoPQeheVQ0KyELLg" title="主题" draggable="false">主题<i></i></a>
+	  <h2><a href="http://mp.weixin.qq.com/s/h5vcBwAoPQeheVQ0KyELLg" title="ps" draggable="false">Html干货分享：如何用代码实现蜂窝状图形</a></h2>
+	</header>
+	<p class="meta">
+	  <time class="time"><i class="glyphicon glyphicon-time"></i> 2017-02-08</time>
+	  <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 217</span> <a class="comment" href="##comment" title="评论" draggable="false"><i class="glyphicon glyphicon-comment"></i> 4</a></p>
+	<p class="note">经常在别人家的网页上看到各种好看图形，其中就有蜂窝状和组合的正六边形图形。今天我们来盘点一下，网页上有哪些姿势实现这个效果</p>
+  </article>
+        each article in articles
+            .media
+                .media-left
+                    a(href=article.link)
+                        img.media-object(src=article.image[0].url,style="width:20vw")
+                .media-body 
+                    a(href=article.link)
+                        h4 
+                            | #{article.title}
