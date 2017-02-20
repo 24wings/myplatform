@@ -8,7 +8,7 @@ exports.addWeixinUser = function (req, res) {
         qq,
         grade,
         subject
-    } = req.query;
+    } = req.body;
     new WeixinUser.model({
         username,
         phone,
@@ -18,8 +18,11 @@ exports.addWeixinUser = function (req, res) {
     }).save(function (err, result) {
         res.json({
             issuccess: !err,
-            data: result
+            data: err ? err : result
         });
     })
 
 };
+exports.getPage = function (req, res) {
+    res.render('addWeixinUser');
+}
