@@ -1,33 +1,21 @@
-    //- include ../mixins/flash-messages
- 
+include ../mixins/flash-messages 
 doctype html
 html
     head
         meta(charset="utf-8")
         meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
-        title= title || 'My Keystone Website'
+        title 万维科技互联网教育平台
         link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-        link(href="/css/reset.css", rel="stylesheet")   
         link(href="/css/style.css" ,rel="stylesheet")
-        link(href="/assets/libs/bootstrap/dist/css/bootstrap.min.css" , rel="stylesheet")
-        
-        
+        link(href="/bootstrap/dist/css/bootstrap.min.css" , rel="stylesheet")
         block css
         block head
     body
-        
-        //- #header My Keystone Website
-        
-        #body
-            
-            block intro
-            
-            +flash-messages(messages)
-            
-            block content
-        
-        //- #footer Powered by <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
+        include navbar
+        block intro
+        +flash-messages(messages)    
+        block content
+        block script
+            script(src='/jquery/dist/jquery.min.js')
+            script(src='/bootstrap/dist/js/bootstrap.min.js')
     
-    script(src='/js/jquery-1.9.1.min.js')
-    
-    block js

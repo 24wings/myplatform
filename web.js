@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-
+// keystone.set('cloudinary config', 'cloudinary://api_key:api_secret@cloud_name' );
 
 
 // init app  ,such as static_file,view_engine,mongo
@@ -8,11 +8,11 @@ keystone.init({
     'brand': 'Demo',
     // 'favicon':'public/favicon.ico',
     'less': 'public',
-    'static': 'public',
+    'static': ['public', 'node_modules'],
     'views': 'templates/views',
     'view engine': 'jade',
     'auto update': true,
-    'mongo': 'mongodb://localhost/keystone-demo',
+    'mongo': 'mongodb://120.77.169.182/platform',
     'cloudinary config': 'cloudinary://688229757297621:D-7VrFqtn6ayg6ItFNXSm52jcS0@dnf1ydl7w',
     'embedly api key': 'adb1c865a9bc489dad997a5f5bddcd6a',
     'session': true,

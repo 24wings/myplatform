@@ -5,8 +5,8 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
-var WeixinUser = new keystone.List('WeixinUser', {
-    label: '微信用户',
+var Student = new keystone.List('Student', {
+    label: '学生',
     map: {
         name: 'username'
     }
@@ -15,9 +15,16 @@ var WeixinUser = new keystone.List('WeixinUser', {
  * theres has few fileds attribute  in Model filed
  * see 
  */
-WeixinUser.add({
-    username: {
+Student.add({
+    email: {
         label: '姓名',
+        type: String,
+        required: true,
+        initial: true,
+        index: true
+    },
+    password: {
+        label: '密码',
         type: String,
         required: true,
         initial: true,
@@ -41,4 +48,4 @@ WeixinUser.add({
     }
 });
 
-WeixinUser.register();
+Student.register();

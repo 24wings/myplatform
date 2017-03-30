@@ -1,12 +1,12 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
-var WeixinArticle = new keystone.List('WeixinArticle', {
+var Article = new keystone.List('Article', {
     map: {
         name: 'title'
     },
-    label: '微信文章'
+    label: '文章'
 });
-WeixinArticle.add({
+Article.add({
     title: {
         label: '文章标题',
         type: String,
@@ -25,4 +25,4 @@ WeixinArticle.add({
         type: String
     }
 });
-WeixinArticle.register();
+Article.register();

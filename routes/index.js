@@ -9,7 +9,7 @@ keystone.pre('render', middleware.flashMessages);
 
 
 // 404 Error Handle
-keystone.set('404', function (err, req, res, next) {
+keystone.set('404', function(err, req, res, next) {
     var title, message;
     if (err instanceof Error) {
         message = err.message;
@@ -24,11 +24,9 @@ var routes = {
     views: importRoutes('./views')
 };
 
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
 
-    app.get('/data/getData', routes.views.data.getData);
-    app.get('/data/getDataById', routes.views.data.getDataById);
-    app.get('/views/weixin/article', routes.views.weixinArticle.allArticles);
-    app.get('/views/weixin/addWeixinUser', routes.views.addWeixinUser.getPage)
-    app.post('/views/weixin/addWeixinUser', routes.views.addWeixinUser.addWeixinUser);
+    app.get('/', routes.views.index.index);
+    app.post('/signup', routes.views.signup.post);
+    app.get('/words', routes.views.words.get);
 };

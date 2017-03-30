@@ -1,70 +1,35 @@
 extends ../layouts/base
- 
 block content
-    .toubu
-        .toubu-left
-            a 
-                img(src="images/logo.png")
-        .toubu-right
-            a 
-                img(src="images/01_03.png")
-            a 
-                img(src="images/01_05.png")
-            p 设置首页
+    .content
+        .wrapper(style='background:url(http://micourse.net/Public/img/homeImg.png)')
+            .container
+                .row
+                    .wrapper-intro.col-xs-0.col-sm-6.col-md-8.col-lg-8
+                        img(src='http://micourse.net/Public/img/MiLogo.png')
+                        br
+                        img(src='http://micourse.net/Public/img/miTitle.png')
+                    .log-or-sign.col-xs-12.col-sm-6.col-md-4.col-lg-4
+                        ul.nav.nav-tabs
+                            li.active
+                                a(href='#login',data-toggle='tab')  登录
+                            li
+                                a(href='#signup',data-toggle='tab')  注册
+                        .tab-content
+                            form.tab-pane.fade.active.in#login
+                                label.hidden 邮箱
+                                input(type='email').form-control
+                                label.hidden  密码
+                                input(type='password').form-control
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked) 
+                                    | 记住我
+                                    a.pull-right.forgot 忘记密码
+                                button.btn.btn-lg.btn-primary.btn-block.login 登录
+                            form.tab-pane.fade(action="/signup",method='post')#signup  
+                                input(type='email',placeholder='你的邮箱',name='email').form-control
+                                label.hidden  密码
+                                input(type='password',name='password').form-control
+                                button.btn.btn-lg.btn-primary.btn-block.login(type='submit') 注册
 
-    .daohang
-        .daohang-box
-            .daohang-box-left
-                a.black(href="#") 首页
-                a(href="#") 宠物生活
-                a(href="#") 宠物资讯
-                a(href="#") 宠物健康
-                a(href="#") 宠物行为
-                a(href="#") 宠物视频
-            form
-                button
-                input(type=text)
-
-
-        each petLife,i in petLifes
-            .neirong-box1
-                a(href="#")
-                       img(src=petLife.image(),alt=petLife.title)
-                       p #{i}
-              
-                   
-                    
-
-
-
-
-
-                //- 内容
-        .neirong-box1
-            .neirong-box1-1
-                a(href="#")
-                    img(src="images/f2b2b2e714954839a663c94afdb77b2c20161209115115.jpg")
-                    p 爱懒床的金毛四兄弟 
-            .neirong-box1-2
-                .neirong-box1-2-1
-                    a(href="#")
-                        img(src="images/666836910d5a4e09a1502e7f7a744d4d20161209115133.jpg")
-                    p 爱懒床的金毛四兄弟
-                .neirong-box1-2-1
-                    a(href="#")
-                        img(src="images/48428b3e81154eea9dc319a8912b186820161209115143.jpg")
-                    p 爱懒床的金毛四兄弟
-                .neirong-box1-2-1.top
-                    a(href="#")
-                        img(src="images/720ea4bba7d94dce94e32ea7f1640a1e20161208150426.jpg")
-                    p 爱懒床的金毛四兄弟
-                .neirong-box1-2-1.top
-                    a
-                        img(src="images/f10694097ffe474f8f81d92f215ffca420161208150415.jpg")
-                    p 爱懒床的金毛四兄弟
-
-    if petLifes.length
-        each petLife,i in petLifes
-            h3 
-                | #{petLife.title}
 
